@@ -1,2 +1,2 @@
-# titanic-passenger-classification
+# Titanic Passenger Classification
 Titanic Passenger Classification
