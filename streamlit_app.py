@@ -8,17 +8,17 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 
 # Título principal de la aplicación
-st.title("Análisis y Predicción del Dataset Titanic usando Árbol de Decisión")
+st.title("Análisis y Predicción del Dataset Titanic usando Árbol de Decisión Basado en Mitchell")
 
 # Descripción del dataset y su origen
 st.markdown("""
-Esta aplicación utiliza un modelo de Árbol de Decisión para predecir la supervivencia de pasajeros del Titanic.
+Esta aplicación utiliza un modelo de Árbol de Decisión basado en el enfoque de Tom Mitchell para predecir la supervivencia de pasajeros del Titanic.
 El análisis se realiza usando el dataset de la competencia Titanic de Kaggle, disponible en:
 [Dataset Titanic - Kaggle](https://www.kaggle.com/competitions/titanic/data?select=train.csv).
 """)
 
 # Cargar el archivo CSV de entrenamiento
-train_data = pd.read_csv('train.csv')
+train_data = pd.read_csv('/mnt/data/train.csv')
 
 # Previsualizar los datos de entrenamiento
 st.write("### Vista previa de los datos de entrenamiento:")
@@ -44,8 +44,8 @@ y = train_data['Survived']
 # División de los datos en entrenamiento (80%) y prueba (20%)
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
-# Entrenar el modelo de árbol de decisión
-model = DecisionTreeClassifier()
+# Entrenar el modelo de árbol de decisión usando el criterio 'entropy' para aplicar ganancia de información
+model = DecisionTreeClassifier(criterion='entropy', random_state=42)
 model.fit(X_train, y_train)
 
 # Evaluar el modelo
