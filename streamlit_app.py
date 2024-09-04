@@ -18,7 +18,7 @@ El análisis se realiza usando el dataset de la competencia Titanic de Kaggle, d
 """)
 
 # Cargar el archivo CSV de entrenamiento
-train_data = pd.read_csv('/mnt/data/train.csv')
+train_data = pd.read_csv('train.csv')
 
 # Previsualizar los datos de entrenamiento
 st.write("### Vista previa de los datos de entrenamiento:")
